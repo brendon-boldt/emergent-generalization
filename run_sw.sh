@@ -46,7 +46,7 @@ EXP_NAME="sw_setref_""$EX""_ex_$i"
 
 python code/train.py --cuda --name "$EXP_NAME" --n_examples $EX --dataset $DATASET --percent_novel 0.0 --max_lang_length $MAXLEN --vocab_size $TOK --batch_size $BATCH_SIZE --accum_steps $ACCUM_STEPS --n_workers $N_WORKERS --backbone $BACKBONE --uniform_weight $UNIF --epochs $EPOCHS --load_shapeworld_into_memory
 
-python code/sample.py $f
+python code/sample.py "exp/$EXP_NAME"
 python code/acre.py "exp/$EXP_NAME/sampled_lang.csv" --dataset $DATASET --cuda
 python code/eval_zero_shot.py "exp/$EXP_NAME" --cuda
 
